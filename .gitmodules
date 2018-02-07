@@ -1,3 +1,6 @@
 [submodule "sjcl"]
 	path = sjcl
 	url = https://github.com/bitwiseshiftleft/sjcl.git
+[submodule "jshashes"]
+	path = jshashes
+	url = https://github.com/h2non/jshashes.git
