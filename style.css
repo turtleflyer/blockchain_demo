@@ -1,3 +1,43 @@
-.block-nonce {
+.block {
+    width: 30rem;
+}
+
+.block--nonce {
+    margin-top: 1rem;
+}
+
+.block--nonce, .block--nonce label {
     display: flex;
+    font-size: 0.8rem;
+    justify-content: flex-end;
+}
+
+.block--nonce input {
+    width: 7rem
+}
+
+.add-new-block-button button {
+    display: block;
+}
+
+.block--hash-value {
+    font-size: 0.7rem;
+    background-color: rgb(232, 232, 232)
+}
+
+.block--hash--pow--false {
+    background-color: rgb(255, 194, 215)
+}
+
+.block--hash--pow--true {
+    background-color: rgb(227, 255, 195)
+}
+
+.link-icon div {
+    cursor: default;
+}
+
+.link-icon div div, .link-icon div div:hover, .link-icon div div:focus, .link-icon div div:active {
+    box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12) !important;
+    background-color: #9c27b0 !important;
 }
