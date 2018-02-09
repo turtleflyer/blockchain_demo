@@ -1,9 +1,9 @@
 const sha256Hash = new sjcl.hash.sha256();
 const zeroesToMatch = 4;
-const templateBlockNode = document.querySelector('#new-block')
+const templateBlockNode = document.querySelector('#new-block');
 
 class Block {
-    constructor(node, number = 0, hashOfPreviousBlock, nonce = 0) {
+    constructor(node, number = 0, hashOfPreviousBlock = undefined, nonce = 0) {
         if (node.hidden) {
             this.node = node.cloneNode(true);
             this.node.id = '';
@@ -29,7 +29,7 @@ class Block {
         this.getData();
         this.getHash();
         this.postBlockInfo();
-        this.mineButton.onclick = () => {this.mine()};
+        this.mineButton.onclick = () => {this.mine();};
         this.dataInputField.addEventListener('input', () => {
             this.getData();
             this.getHash();
@@ -41,10 +41,10 @@ class Block {
             this.getHash();
             this.postBlockInfo();
         });
-        this.parentChain;
+        this.parentChain = undefined;
         this.addNextBlockButton.onclick = () => {
             this.parentChain.addNewBlock().node.scrollIntoView({behavior: 'smooth'});
-        }
+        };
     }
 
     getData() {
@@ -57,7 +57,8 @@ class Block {
 
     getHash() {
         const fullData = {data: this.data, hashOfPreviousBlock: this.hashOfPreviousBlock, nonce: this.nonce, number: this.number};
-        return this._lastHash = Block.hashFromObject(fullData);
+        this._lastHash = Block.hashFromObject(fullData);
+        return this._lastHash;
     }
 
     static _hashMatch(hash) {
@@ -144,7 +145,7 @@ class BlockChain {
 }
 
 const genesisBlockNode = document.querySelector('#genesis-block');
-const genesisBlock = new Block(genesisBlockNode)
+const genesisBlock = new Block(genesisBlockNode);
 console.log();
 const mainChain = new BlockChain();
 
