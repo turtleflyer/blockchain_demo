@@ -150,12 +150,3 @@ console.log();
 const mainChain = new BlockChain();
 
 mainChain.addGivenBlock(genesisBlock);
-// mainChain.addNewBlock();
-
-
-
-// console.log(genesisBlock.getHash());
-// let newNonce = genesisBlock.proofOfWork();
-// console.log(newNonce);
-// genesisBlock.nonce = newNonce;
-// console.log(genesisBlock.getHash()); 
